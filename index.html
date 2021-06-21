@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	  <meta charset="utf-8">
+	  <title>Scene</title>
+      <link href="./css/styles.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- https://www.w3schools.com/icons/fontawesome_icons_webapp.asp -->
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="./css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+      <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+      <script src="./js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+        <!-- NAVBAR no topo do site-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+        </nav>
+        <!-- sidebar -->
+        <div class="container-fluid">
+            <div class="row flex-xl-nowrap">
+                <nav id="sidebarMenu" class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <div class="dropdown-divider"></div>
+                        <li class="nav-item">
+                          <div id="nodeFields" class="collapse">
+                            Description:
+                            <input id="inputDescriptionField" class="form-control mr-sm-2" type="Description" aria-label="Description" onchange="textEditedDescriptionField()" >
+                            <br/>
+                            KPI Value:
+                            <input id="inputValueField" class="form-control mr-sm-2 text-right" type="number" aria-label="KPI Value" onchange="textEditedValueField()" >
+                            <br/>
+                            Scalar Value:
+                            <input id="inputFactorField" class="form-control mr-sm-2 text-right" type="number" aria-label="Factor" onchange="textEditedFactorField()" >
+                            <br/>
+                            Parent Relation:
+                            <select name="Operation" id="dropOperation" onchange="textEditedOperationSymbolField()">
+                              <option value="sum">&#10133;</option>
+                              <option value="division">&#10135;</option>
+                              <option value="multiplication">&#10006;</option>
+                            </select>
+                          </div>
+                        </li>
+                        <br/>
+                        <br/>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="shopping-cart"></span>
+                            Products
+                        </a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            Customers
+                        </a>
+                        </li>
+                      </ul>
+                  </div>
+                </nav>
+                
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                  <!-- Bloco da engine -->
+                    <button id="btn" type="button" class="btn btn-outline-secondary" onclick="AddChildToSelectedNode()">
+                      <i class="fa fa-plus"></i> Add Node
+                    </button>
+                    <button id="btnMove" type="button" class="btn btn-outline-secondary" onclick="carregaArvore()">Import</button>
+                    <button id="btnZoomIn" type="button" class="btn btn-outline-secondary" onclick="doZoom(this.id)">
+                      <i class="fa fa-search-plus"></i>
+                    </button>
+                    <button id="btnZoomOut" type="button" class="btn btn-outline-secondary" onclick="doZoom(this.id)">
+                      <i class="fa fa-search-minus"></i>
+                    </button>
+                    <button id="btnDelete" type="button" class="btn btn-outline-secondary" onclick="removeNode()">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                    <canvas style="width: 100%; height:100%" id="scene" onwheel="onWheelRolled(event)"></canvas>
+              </main>
+            </div>
+        </div>
+            
+		<script src="./js/models.js"></script>
+		<script src="./js/core.js"></script>
+        <script src="./js/manipulations.js"></script>
+        
+	</body>
+</html>

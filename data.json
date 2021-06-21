@@ -1,0 +1,67 @@
+{
+    "id" : 0,
+	"description" : "ROB de Inovações e Operações",
+	"kpiValue" : 11.23,
+    "kpiUnitOfMeasure" : "%",
+	"parentCalculus" : "sum",
+	"calculusFactor" : 1,
+	"x" : 200,
+	"y" : 200,
+	"height" : 30,
+	"width" : 100,
+	"childNodes" : [
+        {
+            "id" : 1,
+            "description" : "Node de ID 1",
+            "kpiValue" : 11.23,
+            "kpiUnitOfMeasure" : "%",
+            "parentCalculus" : "sum",
+            "calculusFactor" : 1,
+            "x" : 200,
+            "y" : 200,
+            "height" : 30,
+            "width" : 100,
+            "childNodes" : [] 
+        },
+        {
+            "id" : 2,
+            "description" : "Node de ID 2",
+            "kpiValue" : 11.23,
+            "kpiUnitOfMeasure" : "%",
+            "parentCalculus" : "division",
+            "calculusFactor" : 1,
+            "x" : 200,
+            "y" : 200,
+            "height" : 30,
+            "width" : 100,
+            "childNodes" : [
+                {
+                    "id" : 11,
+                    "description" : "Node mais interno - ID 11",
+                    "kpiValue" : 11.23,
+                    "kpiUnitOfMeasure" : "%",
+                    "parentCalculus" : "sum",
+                    "calculusFactor" : 1,
+                    "x" : 200,
+                    "y" : 200,
+                    "height" : 30,
+                    "width" : 100,
+                    "childNodes" : [] 
+                }
+            ] 
+        },
+        {
+            "id" : 3,
+            "description" : "Node de ID 3",
+            "kpiValue" : 11.23,
+            "kpiUnitOfMeasure" : "%",
+            "parentCalculus" : "sum",
+            "calculusFactor" : 1,
+            "x" : 200,
+            "y" : 200,
+            "height" : 30,
+            "width" : 100,
+            "childNodes" : [] 
+        }
+    ] 
+}
